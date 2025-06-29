@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rekap Pembuatan Web</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Baloo+2&display=swap" rel="stylesheet">
+  <style>
+* {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+  
+    body {
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      background: radial-gradient(circle at top left, #2d006d, pink 60%);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin: 40px 0 20px;
+      color: #d2a8ff;
+      font-weight: 600;
+      text-shadow: 0 0 20px #9d4edd;
+      text-align: center;
+      font-size: 1.9em;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .gallery-rekap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+    }
+
+    .gallery-rekap img {
+      width: 180px;
+      height: 250px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 3px dashed #ff66c4;
+      background: linear-gradient(135deg, #ffc8dd, #bde0fe);
+      padding: 6px;
+      box-shadow: 0 0 15px rgba(255, 118, 255, 0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      position: relative;
+    }
+.gallery-rekap video {
+  width: 180px;
+  height: 250px;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 3px dashed #ff66c4;
+  background: linear-gradient(135deg, #ffc8dd, #bde0fe);
+  padding: 6px;
+  box-shadow: 0 0 15px rgba(255, 118, 255, 0.3);
+  position: relative;
+  pointer-events: auto;
+}
+    
+/* Khusus pas fullscreen */
+.gallery-rekap video:fullscreen {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+    .gallery-rekap img:hover {
+      transform: translateY(-21px) scale(1.3) rotate(-3deg);
+      box-shadow: 0 0 25px rgba(255, 102, 196, 0.7);
+      z-index: 100;
+    }
+
+    .gallery-rekap img:hover::after {
+      content: "💖";
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      animation: floatUp 1s ease;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      100% { transform: translateX(-50%) translateY(-30px); opacity: 0; }
+    }
+
+    /* Cute stars animation */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background: url('') repeat;
+      background-size: 80px;
+      opacity: 0.05;
+      animation: scrollStar 100s linear infinite;
+    }
+
+    @keyframes scrollStar {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+
+    /* Optional cute button */
+    .play-button {
+      margin: 10px 0 30px;
+      background: #ff9de2;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-family: 'Baloo 2', cursive;
+      box-shadow: 0 0 10px #ff66c4;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .play-button:hover {
+      transform: scale(1.1);
+      background: #ff66c4;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars"></div>
+
+  <h1>𝗥𝗲𝗸𝗮𝗽 𝗣𝗲𝗺𝗯𝘂𝗮𝘁𝗮𝗻 𝗪𝗲𝗯</h1>
+
+  <button class="play-button" onclick="triggerSound()">Putar Suara</button>
+
+  <div class="gallery-rekap">
+    <img src="rekap1.jpg" alt="ini ss pas masih polos banget web nya">
+    <img src="rekap2.jpg" alt="mulai bagus, tapi suratnya masih kepanjangan">
+    <img src="rekap3.jpg" alt="mulai fix bug">
+    <img src="rekap4.jpg" alt="bikin typography buat ultah kamuu">
+    <img src="rekap5.jpg" alt="container video jadi">
+    <img src="rekap6.jpg" alt="pasang typography tapi thumbnailnya belum">
+    <img src="rekap7.jpg" alt="pasang foto memory kita">
+    <img src="rekap8.jpg" alt="bikin surat cintahhh">
+    <img src="rekap9.jpg" alt="perbagus font">
+    <img src="rekap10.jpg" alt="perbagus tampilan web nyahh">
+    <img src="rekap11.jpg" alt="pasang pasang web ini">
+    <video controls poster="thumb2.png">
+      <source src="rekap12.mp4" type="video/mp4" alt="rekap video sambil party">
+    </video>
+  </div>
+
+  <audio id="clickSound" src="click_photo.mp3"></audio>
+
+<script>
+  const gallery = document.querySelectorAll('.gallery-rekap img');
+  const audio = document.getElementById('clickSound');
+  const video = document.querySelector('.gallery-rekap video');
+
+  function triggerSound() {
+    if (audio.paused) {
+      audio.currentTime = 0;
+      audio.play();
+    }
+  }
+
+  gallery.forEach(img => {
+    img.addEventListener('click', () => {
+      // Kalau video lagi nyala, pause dulu
+      if (!video.paused) {
+        video.pause();
+      }
+      triggerSound();
+    });
+  });
+
+  video.addEventListener('play', () => {
+    // Kalau backsound lagi nyala, pause dulu
+    if (!audio.paused) {
+      audio.pause();
+    }
+  });
+</script>
+
+</body>
+</html>

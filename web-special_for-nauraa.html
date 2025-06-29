@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday My Darling 💖</title>
+  <style>
+* {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+  
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+.container {
+  margin-top: 50px;
+  background-color: rgba(255, 182, 193, 0.85);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.7);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1, p {
+  margin: 20px;
+}
+
+button {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #ff1493;
+  transform: scale(1.1);
+}
+    
+.gallery, .video-section, .voice-section {
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(255, 182, 193, 0.9);
+  border-radius: 20px;
+  width: 80%;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+}
+    
+.gallery h2, .video-section h2, .voice-section h2 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+    
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+    
+.photos img {
+  width: 500px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
+  transition: 0.3s;
+}
+    
+.photos img:hover {
+  transform: scale(1.1);
+}
+    
+.video-section video {
+  width: 90%;
+  max-width: 700px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
+}
+    
+.video-section h2 {
+  font-size: 1.0em;
+}
+    
+.video-section1 video {
+  width: 90%;
+  max-width: 7000px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
+}
+    
+.voice-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+    
+.voice-box img {
+  width: 200px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+    
+.voice-box audio {
+  width: 80%;
+  max-width: 500px;
+}
+    
+.hearts::before {
+  content: "💖 💕 💓 💗 💘 💝";
+  font-size: 90px;
+  opacity: 0.2;
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: hearts 10s linear infinite;
+}
+    
+@keyframes hearts {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(100vh);}
+}
+    
+canvas#confetti {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ pointer-events: none;
+ z-index: 1;
+}
+    
+.profile-box1 {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(255, 182, 193, 0.8);
+  padding: -10px 10px;
+  border-radius: 50px;
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.8);
+  display: flex;
+  align-items: center;
+}
+    
+.profile-box {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(255, 182, 193, 0.8);
+  padding: 5px 10px;
+  border-radius: 50px;
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.8);
+  display: flex;
+  align-items: center;
+}
+    
+.profile-box img.profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+    
+.profile-box img#playPauseBtn {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+    
+.profile-box img#playPauseBtn:hover {
+  transform: scale(1.1);
+}
+    
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: #fff;
+  color: #333;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  width: 80%;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  overflow-y: auto;
+  max-height: 80vh
+}
+    
+.popup.show {
+  transform: translate(-50%, -50%) scale(1);
+}
+    
+.emoji-left {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 2.5em;
+  transform: rotate(-45deg);
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+    
+.emoji-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2.5em;
+  transform: rotate(45deg);
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+    
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+video {
+  pointer-events: auto;
+}
+  
+.fancy-button{
+  background: linear-gradient(45deg, #ff69b4, pink);
+  outline: none;
+  color: white;
+  border: none;
+  padding: 13px 23px;
+  border-radius: 50px;
+  font-size: 1.0em;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.fancy-button:hover {
+  transform: scale(0.9);
+  box-shadow: 0 0 30px rgba(255, 20, 147, 0.9);
+}
+
+.fancy-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 60%);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.fancy-button:active::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.love-letter {
+  margin: 50px auto;
+  padding: 30px;
+  background-color: rgba(255, 182, 193, 0.9);
+  color: #444;
+  border-radius: 20px;
+  width: 85%;
+  max-width: 700px;
+  font-family: 'Georgia', serif;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.love-letter h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #e91e63;
+  text-shadow: 1px 1px 3px rgba(255, 192, 203, 0.6);
+}
+
+.letter-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.letter-scroll p {
+  font-size: 1.0em;
+  line-height: 1.8em;
+}
+
+body {
+  cursor: url('cursor_heart.png'), auto; /* pakai cursor bentuk hati, pastikan ada file-nya */
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 90% }
+}
+
+.typing-text {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #fff;
+  width: 0;
+  animation: typing 2s steps(35, end) forwards;
+}
+
+.note1 {
+  margin-right: 115px;
+  margin-bottom: 0px;
+  font-size: 0.7em;
+}
+
+.voice-section audio {
+  width: 350px;
+  filter: drop-shadow(2px 2px 4px #ffc0cb);
+  border-radius: 10px;
+}
+
+.guestbook {
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(255, 182, 193, 0.9);
+  border-radius: 20px;
+  width: 85%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+  text-align: center;
+}
+
+.guestbook input, .guestbook textarea {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+.guestbook button {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.guestbook button:hover {
+  background-color: #ff1493;
+  transform: scale(1.05);
+}
+
+.pesan-list {
+  margin: 30px auto;
+  padding: 20px;
+  background-color: rgba(255, 182, 193, 0.9);
+  border-radius: 20px;
+  width: 85%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+  text-align: left;
+}
+
+.pesan-item {
+  background: rgba(255,255,255,0.8);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  color: #333;
+}
+
+  </style>
+</head>
+
+<body>
+  <audio id="cuteClick" src="iloveyou.mp3"></audio> <!-- pastikan file ada -->
+  
+  <div class="hearts"></div>
+
+  <div class="container">
+    <h1 class="typing-text">🎂Happy Birthday Sweetie!🎀</h1>
+    <p class="animate-text">⋆·˚˚°✦𝘁𝗲𝗿𝘂𝗻𝘁𝘂𝗸 𝗸𝗮𝗺𝘂 𝘆𝗮𝗻𝗴 𝘀𝗲𝗹𝗮𝗹𝘂 𝗺𝗲𝗻𝗲𝗺𝗮𝗻𝗶 𝗸𝘂✦°˚˚·⋆</p>
+    <button id="showMessageBtn" class="fancy-button">❝buka ini❞</button>
+  </div>
+
+  <div class="gallery">
+    <h2>📸 perwakilan Memory Kita</h2>
+    <div class="photos">
+      <img src="memory1.jpg" alt="Foto 1" />
+      <img src="memory2.jpg" alt="Foto 2" />
+      <img src="memory3.jpg" alt="Foto 3" />
+      <img src="memory4.jpg" alt="Foto 4" />
+    <div class="video-section1">
+      <video id="videoMemory" controls controlsList="nodownload noplaybackrate" poster="thumbnail2.jpg">
+      <source src="alonemap.mp4" type="video/mp4" />
+    </div>
+    </div>
+  </div>
+
+  <div class="video-section">
+    <h2>🎥𝗺𝘆 𝗲𝗱𝗶𝘁𝗶𝗻𝗴 𝘁𝘆𝗽𝗼𝗴𝗿𝗮𝗽𝗵𝘆 𝗳𝗼𝗿 𝘆𝗼𝘂𝗿 𝗯𝗶𝗿𝘁𝗵𝗱𝗮𝘆🫶</h2>
+    <video id="videodarling" controls controlsList="nodownload noplaybackrate disablePictureInPicture" poster="thumbnail.png">
+      <source src="video_darling.mp4" type="video/mp4" />
+    </video>
+      <p class="note1">
+        𝗻𝗼𝘁𝗲 : 𝗸𝗮𝗹𝗮𝘂 𝗺𝗮𝘂 𝗱𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝘁𝗲𝗸𝗲𝗻 𝗮𝗷𝗮 𝘃𝗶𝗱𝗲𝗼 𝗻𝘆𝗮❤︎ 
+      </p>
+  </div>
+
+<div class="guestbook">
+  <h2>💌 Kirim Ucapan Buat Naura</h2>
+  <input type="text" id="namaInput" placeholder="Nama kamu..." required>
+  <br><br>
+  <textarea id="pesanInput" rows="3" placeholder="Pesan kamu..." required></textarea>
+  <br><br>
+  <button onclick="kirimPesan()">Kirim Pesan</button>
+</div>
+
+<div class="pesan-list" id="pesanList">
+  <h2>📜 Ucapan Dari Teman-Teman</h2>
+</div>
+
+<div class="love-letter">
+  <h2>💌 surat cinta for my honey 🩷</h2>
+  <div class="letter-scroll">
+    <p>
+      Untuk My Sweetie 🩷<br><br>
+      Di setiap helaan nafasku, kamu hadir sebagai alasan. Kamu bukan hanya bunga dalam taman hatiku, tapi kamu adalah taman itu sendiri.<br><br>
+      Aku nggak butuh dunia yang megah. Cukup kamu — senyummu, suaramu, caramu bercanda. Kamu bikin dunia aku berwarna sweetie, bahkan di saat aku paling suram.<br><br>
+      Terima kasih udah hadir, udah sayang aku. Aku janji bakal terus ada, terus jagain kamu, sampai nanti kita tua, duduk bareng di teras sambil ingat semua ini 🥹<br><br>
+      Naura... kamu rumahku. Dan aku gak mau tinggal di tempat lain.💖<br><br>
+      - Ariel, yang always love you💗
+    </p>
+  </div>
+</div>
+
+  <div class="voice-section">
+    <h2>🎙VN Khusus :></h2>
+    <div class="voice-box">
+      <audio controls id="voice">
+        <source src="voice_special.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+  </div>
+  
+  <div class="profile-box">
+    <img class="profile" src="profile.jpg" alt="ariel" />
+    <p>Ariel ❤</p>
+    <img id="playPauseBtn" src="play.png" alt="PlayPause"/>
+  </div>
+
+<div class="profile-box1" style="left: 20px; bottom: 100px; cursor: pointer;" onclick="window.location.href='rekap.html'">
+  <p>𝐑𝐞𝐤𝐚𝐩 📂</p>
+</div>
+
+  <div class="popup" id="popup">
+    <span class="emoji-left">🫰🏻</span>
+    <span class="emoji-right">📧</span>
+    <h2>Selamat Ulang Tahun <br>🌸Naura🌸</h2>
+    <p>
+      𝙷𝚊𝚙𝚙𝚢 𝙱𝚒𝚛𝚝𝚑𝚍𝚊𝚢 𝙼𝚢 𝚂𝚠𝚎𝚎𝚝𝚒𝚎 𝙽𝚊𝚞𝚛𝚊 🩷🎂
+      <br>𝐃𝐢 𝐡𝐚𝐫𝐢 𝐬𝐩𝐞𝐬𝐢𝐚𝐥 𝐤𝐚𝐦𝐮 𝐢𝐧𝐢, 𝐚𝐤𝐮 𝐦𝐚𝐮 𝐛𝐢𝐥𝐚𝐧𝐠, 𝐚𝐤𝐮 𝐛𝐞𝐫𝐬𝐲𝐮𝐤𝐮𝐫 𝐛𝐚𝐧𝐠𝐞𝐭 𝐩𝐮𝐧𝐲𝐚 𝐤𝐚𝐦𝐮 𝐧𝐚𝐮𝐫𝐚𝐚𝐚𝐚, 𝐤𝐚𝐫𝐧𝐚 𝐤𝐚𝐦𝐮 𝐬𝐞𝐬𝐞𝐨𝐫𝐚𝐧𝐠 𝐲𝐚𝐧𝐠 𝐬𝐞𝐥𝐚𝐥𝐮 𝐛𝐢𝐬𝐚 𝐛𝐢𝐤𝐢𝐧 𝐡𝐚𝐫𝐢-𝐡𝐚𝐫𝐢 𝐚𝐤𝐮 𝐣𝐚𝐮𝐡 𝐥𝐞𝐛𝐢𝐡 𝐢𝐧𝐝𝐚𝐡 𝐝𝐚𝐧 𝐛𝐞𝐫𝐰𝐚𝐫𝐧𝐚🥹.
+      <br>𝐇𝐚𝐩𝐩𝐲 𝐁𝐢𝐫𝐭𝐡𝐝𝐚𝐲 𝐌𝐲 𝐒𝐰𝐞𝐞𝐭𝐢𝐞 𝐍𝐚𝐮𝐫𝐚 🩷🎂𝐍𝐚𝐮𝐫𝐚, 𝐬𝐞𝐣𝐚𝐤 𝐤𝐢𝐭𝐚 𝐤𝐞𝐧𝐚𝐥, 𝐚𝐤𝐮 𝐧𝐠𝐞𝐫𝐚𝐬𝐚 𝐡𝐢𝐝𝐮𝐩 𝐚𝐤𝐮 𝐛𝐞𝐫𝐮𝐛𝐚𝐡. 𝐁𝐮𝐤𝐚𝐧 𝐜𝐮𝐦𝐚 𝐚𝐝𝐚 𝐫𝐚𝐬𝐚 𝐬𝐮𝐤𝐚, 𝐭𝐚𝐩𝐢 𝐚𝐝𝐚 𝐫𝐚𝐬𝐚 𝐧𝐲𝐚𝐦𝐚𝐧, 𝐫𝐚𝐬𝐚 𝐚𝐦𝐚𝐧, 𝐫𝐚𝐬𝐚 𝐝𝐢𝐡𝐚𝐫𝐠𝐚𝐢, 𝐫𝐚𝐬𝐚 𝐝𝐢𝐦𝐞𝐧𝐠𝐞𝐫𝐭𝐢, 𝐝𝐚𝐧 𝐫𝐚𝐬𝐚 𝐝𝐢𝐜𝐢𝐧𝐭𝐚𝐢 𝐲𝐚𝐧𝐠 𝐬𝐞𝐥𝐚𝐦𝐚 𝐢𝐧𝐢 𝐧𝐠𝐠𝐚𝐤 𝐩𝐞𝐫𝐧𝐚𝐡 𝐚𝐤𝐮 𝐛𝐚𝐲𝐚𝐧𝐠𝐢𝐧 𝐬𝐞𝐛𝐞𝐥𝐮𝐦𝐧𝐲𝐚.
+      <br>𝐊𝐚𝐦𝐮 𝐛𝐮𝐤𝐚𝐧 𝐜𝐮𝐦𝐚 𝐬𝐞𝐤𝐞𝐝𝐚𝐫 𝐩𝐚𝐜𝐚𝐫 𝐛𝐮𝐚𝐭 𝐚𝐤𝐮. 𝐊𝐚𝐦𝐮 𝐢𝐭𝐮 𝐫𝐮𝐦𝐚𝐡. 𝐓𝐞𝐦𝐩𝐚𝐭 𝐚𝐤𝐮 𝐩𝐮𝐥𝐚𝐧𝐠, 𝐭𝐞𝐦𝐩𝐚𝐭 𝐚𝐤𝐮 𝐛𝐢𝐬𝐚 𝐣𝐚𝐝𝐢 𝐝𝐢𝐫𝐢 𝐬𝐞𝐧𝐝𝐢𝐫𝐢, 𝐭𝐞𝐦𝐩𝐚𝐭 𝐚𝐤𝐮 𝐛𝐢𝐬𝐚 𝐜𝐞𝐫𝐢𝐭𝐚 𝐬𝐞𝐦𝐮𝐚 𝐡𝐚𝐥 𝐭𝐚𝐧𝐩𝐚 𝐭𝐚𝐤𝐮𝐭 𝐝𝐢𝐡𝐚𝐤𝐢𝐦𝐢. 𝐊𝐚𝐦𝐮 𝐬𝐞𝐥𝐚𝐥𝐮 𝐚𝐝𝐚 𝐛𝐮𝐚𝐭 𝐚𝐤𝐮, 𝐝𝐞𝐧𝐠𝐞𝐫𝐢𝐧 𝐚𝐤𝐮, 𝐧𝐞𝐦𝐞𝐧𝐢𝐧 𝐚𝐤𝐮, 𝐝𝐚𝐧 𝐢𝐭𝐮 𝐬𝐞𝐦𝐮𝐚 𝐛𝐞𝐫𝐚𝐫𝐭𝐢 𝐛𝐚𝐧𝐠𝐞𝐭 𝐛𝐮𝐚𝐭 𝐚𝐤𝐮.
+      <br>𝐀𝐤𝐮 𝐧𝐠𝐠𝐚𝐤 𝐛𝐮𝐭𝐮𝐡 𝐚𝐩𝐚𝐩𝐮𝐧 𝐥𝐚𝐠𝐢 𝐬𝐞𝐥𝐚𝐢𝐧 𝐭𝐞𝐭𝐚𝐩 𝐬𝐚𝐦𝐚 𝐤𝐚𝐦𝐮, 𝐭𝐞𝐫𝐮𝐬 𝐬𝐚𝐦𝐚 𝐤𝐚𝐦𝐮, 𝐝𝐚𝐧 𝐣𝐚𝐠𝐚 𝐤𝐚𝐦𝐮 𝐬𝐞𝐛𝐚𝐢𝐤 𝐦𝐮𝐧𝐠𝐤𝐢𝐧.
+      <br>𝐓𝐞𝐫𝐢𝐦𝐚 𝐤𝐚𝐬𝐢𝐡 𝐲𝐚 𝐬𝐰𝐞𝐞𝐭𝐢𝐞-𝐤𝐮, 𝐮𝐝𝐚𝐡 𝐡𝐚𝐝𝐢𝐫 𝐝𝐢 𝐡𝐢𝐝𝐮𝐩 𝐚𝐤𝐮. 𝐔𝐝𝐚𝐡 𝐧𝐠𝐢𝐬𝐢 𝐡𝐚𝐫𝐢-𝐡𝐚𝐫𝐢 𝐚𝐤𝐮 𝐬𝐚𝐦𝐚 𝐭𝐚𝐰𝐚, 𝐬𝐞𝐧𝐲𝐮𝐦, 𝐝𝐚𝐧 𝐬𝐞𝐦𝐮𝐚 𝐦𝐨𝐦𝐞𝐧 𝐦𝐚𝐧𝐢𝐬 𝐤𝐢𝐭𝐚. 𝐒𝐞𝐭𝐢𝐚𝐩 𝐝𝐞𝐭𝐢𝐤 𝐛𝐚𝐫𝐞𝐧𝐠 𝐤𝐚𝐦𝐮 𝐬𝐞𝐥𝐚𝐥𝐮 𝐣𝐚𝐝𝐢 𝐦𝐨𝐦𝐞𝐧 𝐲𝐚𝐧𝐠 𝐚𝐤𝐮 𝐬𝐲𝐮𝐤𝐮𝐫𝐢.
+      <br>𝐀𝐤𝐮 𝐜𝐢𝐧𝐭𝐚 𝐤𝐚𝐦𝐮 𝐛𝐮𝐤𝐚𝐧 𝐜𝐮𝐦𝐚 𝐡𝐚𝐫𝐢 𝐢𝐧𝐢, 𝐭𝐚𝐩𝐢 𝐭𝐢𝐚𝐩 𝐝𝐞𝐭𝐢𝐤, 𝐭𝐢𝐚𝐩 𝐧𝐚𝐟𝐚𝐬, 𝐭𝐢𝐚𝐩 𝐰𝐚𝐤𝐭𝐮, 𝐝𝐚𝐧 𝐬𝐞𝐭𝐞𝐫𝐮𝐬𝐧𝐲𝐚.
+      <br>𝐥𝐞𝐭'𝐬 𝐠𝐨 𝐭𝐡𝐫𝐨𝐮𝐠𝐡 𝐢𝐭 𝐮𝐧𝐭𝐢𝐥 𝐰𝐞 𝐛𝐞𝐜𝐨𝐦𝐞 𝐚 𝐥𝐞𝐠𝐚𝐥 𝐜𝐨𝐮𝐩𝐥𝐞, 𝐲𝐨𝐮 𝐚𝐠𝐫𝐞𝐞 𝐢𝐭 𝐬𝐰𝐞𝐞𝐭𝐢𝐞? :𝟑
+      <br>𝗬𝗼𝘂 𝗮𝗿𝗲 𝗺𝘆 𝗼𝗻𝗲 𝗮𝗻𝗱 𝗼𝗻𝗹𝘆. 𝗠𝘆 𝗹𝗮𝘀𝘁. 𝗠𝘆 𝗳𝗼𝗿𝗲𝘃𝗲𝗿.
+      <br>𝐁𝐞 𝐦𝐲 𝐟𝐨𝐫𝐞𝐯𝐞𝐫 𝐬𝐰𝐞𝐞𝐭𝐢𝐞 💗🫶
+      <br>𝐈'𝐥𝐥 𝐥𝐨𝐯𝐞 𝐲𝐨𝐮 𝐦𝐨𝐫𝐞 𝐚𝐧𝐝 𝐦𝐨𝐫𝐞 𝐞𝐯𝐞𝐫𝐲𝐝𝐚𝐲 , 𝐨𝐧𝐞 𝐦𝐨𝐫𝐞 𝐚𝐠𝐚𝐢𝐧 <br>💗𝐈 𝐋𝐎𝐕𝐄 𝐘𝐎𝐔 𝐅𝐎𝐑𝐄𝐕𝐄𝐑 :𝟑 💗
+    </p>
+    <button id="closePopup">Tutup 😉</button>
+  </div>
+
+  <canvas id="confetti"></canvas>
+
+  <audio id="backgroundMusic" src="musik_darling.mp3"></audio>
+  <audio id="popupMusic" src="popup_song.mp3"></audio>
+
+<div style="text-align: center; margin: 50px 0; font-size: 1.5em;">
+  <a href="https://portfolio-repo-github-n2sr.vercel.app/" target="_blank" style="color: purple; text-decoration: none; font-weight: bold;">
+    𝐖𝐞𝐛 𝐏𝐨𝐫𝐭𝐟𝐨𝐥𝐢𝐨 𝐚𝐤𝐮𝐮💻
+  </a>
+</div>
+
+  <script>
+    const btn = document.getElementById('showMessageBtn');
+    const popup = document.getElementById('popup');
+    const closeBtn = document.getElementById('closePopup');
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+    const bgMusic = document.getElementById("backgroundMusic");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    btn.addEventListener('click', () => {
+      popup.classList.add('show');
+      startConfetti();
+      popupMusic.play();
+      bgMusic.pause();
+      playPauseBtn.src = "play.png"
+      isPlaying = false;
+      voiceAudio.pause();
+      videoDarling.pause();
+      if (!videoMemory.paused){
+        videoMemory.pause();
+      }
+    });
+
+    closeBtn.addEventListener('click', () => {
+      popup.classList.remove('show');
+      popupMusic.pause();
+      popupMusic.currentTime = 0;
+    });
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    let confetti = [];
+    for (let i = 0; i < 300; i++) {
+      confetti.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        r: Math.random() * 6 + 2,
+        d: Math.random() * 50 + 50,
+        color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+        tilt: Math.random() * 10 - 10
+      });
+    }
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confetti.forEach(c => {
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2, false);
+        ctx.fillStyle = c.color;
+        ctx.fill();
+      });
+      updateConfetti();
+    }
+
+    function updateConfetti() {
+      confetti.forEach(c => {
+        c.y += Math.cos(c.d / 10);
+        c.x += Math.sin(c.d / 15);
+        if (c.y > canvas.height) {
+          c.y = -10;
+          c.x = Math.random() * canvas.width;
+        }
+      });
+    }
+
+    let confettiInterval;
+    function startConfetti() {
+      if (confettiInterval) clearInterval(confettiInterval);
+      confettiInterval = setInterval(drawConfetti, 30);
+    }
+
+const videoDarling = document.getElementById("videodarling");
+const voiceAudio = document.getElementById("voice");
+const playPauseBtn = document.getElementById("playPauseBtn");
+const videoMemory = document.getElementById("videoMemory")
+
+let isPlaying = false;
+
+// Play/pause bg music via tombol
+playPauseBtn.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    videoDarling.pause();
+    voiceAudio.pause();
+    bgMusic.play();
+    playPauseBtn.src = "pause.png";
+    isPlaying = true;
+  } else {
+    bgMusic.pause();
+    playPauseBtn.src = "play.png";
+    isPlaying = false;
+  }
+  if (!videoMemory.paused){
+    videoMemory.pause();
+  }
+});
+
+// Kalau video darling di play, pause bg music & voice
+videoDarling.addEventListener("play", () => {
+  if (!bgMusic.paused) {
+    bgMusic.pause();
+    playPauseBtn.src = "play.png";
+    isPlaying = false;
+  }
+  if (!voiceAudio.paused) {
+    voiceAudio.pause();
+  }
+  if (!videoMemory.paused){
+    videoMemory.pause();
+  }
+});
+
+// Kalau voice di play, pause bg music & video
+voiceAudio.addEventListener("play", () => {
+  if (!bgMusic.paused) {
+    bgMusic.pause();
+    playPauseBtn.src = "play.png";
+    isPlaying = false;
+  }
+  if (!videoDarling.paused) {
+    videoDarling.pause();
+  }
+  if (!videoMemory.paused){
+    videoMemory.pause();
+  }
+});
+
+videoMemory.addEventListener("play", () => {
+  bgMusic.pause();
+  videoDarling.pause();
+  playPauseBtn.src = "play.png";
+  isPlaying = false;
+});
+    
+    // Setup canvas hearts particle
+const heartsCanvas = document.getElementById('heartsCanvas');
+const heartsCtx = heartsCanvas.getContext('2d');
+heartsCanvas.width = window.innerWidth;
+heartsCanvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+  heartsCanvas.width = window.innerWidth;
+  heartsCanvas.height = window.innerHeight;
+});
+
+// Generate heart particles
+let hearts = [];
+for (let i = 0; i < 50; i++) {
+  hearts.push({
+    x: Math.random() * heartsCanvas.width,
+    y: Math.random() * heartsCanvas.height,
+    size: Math.random() * 20 + 10,
+    speed: Math.random() * 1 + 0.5,
+    drift: Math.random() * 1 - 0.5,
+    opacity: Math.random() * 0.5 + 0.5
+  });
+}
+
+function drawHearts() {
+  heartsCtx.clearRect(0, 0, heartsCanvas.width, heartsCanvas.height);
+  hearts.forEach(h => {
+    heartsCtx.save();
+    heartsCtx.globalAlpha = h.opacity;
+    heartsCtx.translate(h.x, h.y);
+    heartsCtx.rotate(Math.PI / 4);
+    heartsCtx.fillStyle = '#ff69b4';
+    heartsCtx.beginPath();
+    heartsCtx.moveTo(0, 0);
+    heartsCtx.bezierCurveTo(-h.size/2, -h.size/2, -h.size, h.size/3, 0, h.size);
+    heartsCtx.bezierCurveTo(h.size, h.size/3, h.size/2, -h.size/2, 0, 0);
+    heartsCtx.fill();
+    heartsCtx.restore();
+
+    h.y += h.speed;
+    h.x += h.drift;
+    if (h.y > heartsCanvas.height) {
+      h.y = -10;
+      h.x = Math.random() * heartsCanvas.width;
+    }
+  });
+}
+
+function kirimPesan() {
+  const nama = document.getElementById('namaInput').value.trim();
+  const pesan = document.getElementById('pesanInput').value.trim();
+
+  if (!nama || !pesan) {
+    alert('Isi nama & pesan dulu ya!');
+    return;
+  }
+
+  const pesanItem = document.createElement('div');
+  pesanItem.classList.add('pesan-item');
+  pesanItem.innerHTML = `<strong>${nama}</strong>: ${pesan}`;
+
+  document.getElementById('pesanList').appendChild(pesanItem);
+
+  // Reset form
+  document.getElementById('namaInput').value = '';
+  document.getElementById('pesanInput').value = '';
+}
+
+function ambilPesan() {
+  fetch('/api/pesan')
+    .then(res => res.json())
+    .then(data => {
+      const list = document.getElementById('pesanList');
+      list.innerHTML = '<h2>📜 Ucapan Dari Teman-Teman</h2>';
+      data.forEach(p => {
+        const item = document.createElement('div');
+        item.classList.add('pesan-item');
+        item.innerHTML = `<strong>${p.nama}</strong>: ${p.pesan}`;
+        list.appendChild(item);
+      });
+    });
+}
+
+// Panggil sekali pas halaman load
+ambilPesan();
+
+  </script>
+</style>
+</body>
+</html>
